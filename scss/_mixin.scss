@@ -1,0 +1,9 @@
+@mixin makeContainer($paddingX, $paddingY, $width) {
+    width: $width;
+    padding-right: $paddingX;
+    padding-left: $paddingX;
+    padding-top: $paddingY;
+    padding-bottom: $paddingY;
+    margin-right: auto;
+    margin-left: auto;
+}

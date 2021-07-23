@@ -1,0 +1,56 @@
+@media (min-width: 1024px) {
+    /*media header*/
+    #navbarNavDropdown {
+        justify-content: center;
+    }
+    /*sectProducts*/
+    .sectProducts {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media (min-width:767px) {
+    /*carrousel*/
+    .carousel-item {
+        height: 30rem;
+        img {
+            height: 100%;
+        }
+    }
+    /*sectAdProducts*/
+    .sectAdProducts {
+        @include makeContainer(5%, 50px, 100%);
+        &__div {
+            @include makeContainer(0, 0, 50%);
+        }
+    }
+    /*sectDivisor*/
+    .sectDivisor {
+        &__divContainer {
+            @include makeContainer(5%, 25px, 50%);
+        }
+        &__divContainerImg {
+            height: 100%;
+            overflow: hidden;
+            width: 50%;
+        }
+    }
+    /*sectFirst*/
+    .sectFirst {
+        @include makeContainer(5%, 25px, 100%);
+        p {
+            width: 40%;
+        }
+    }
+    /*footer*/
+    .footer {
+        .footer__imgLink {
+            display: flex;
+            justify-content: flex-start;
+            img {
+                width: 10rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.imgLogoSmall {
+    width: 3rem;
+}
+
+.fuenteWhite {
+    font-family: $fuentePoppins;
+    color: $textOrIconsColor;
+}
+
+.titleBlack {
+    font-family: $fuenteOswald;
+    color: $primaryTextColor;
+}
+
+.sectDivisor {
+    border-top: 4px solid $dividerColor;
+    background-size: cover;
+    background-position: center, center;
+    display: flex;
+    flex-wrap: wrap;
+    @extend .fuenteWhite;
+    &__divContainer {
+        @include makeContainer(5%, 25px, 100%);
+        &__titleMd01 {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        &__pMd01 {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        &__titleMd02 {
+            color: $primaryTextColor;
+            display: flex;
+            justify-content: flex-start;
+        }
+        &__pMd02 {
+            color: $primaryTextColor;
+        }
+    }
+    &__divContainerImg {
+        overflow: hidden;
+    }
+}
+
+.sectFirst {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-size: cover;
+    background-position: center, center;
+    background-repeat: no-repeat;
+    @extend .fuenteWhite;
+    min-height: 220px;
+    @include makeContainer(5%, 25px, 100%);
+}
+
+.sectContainer {
+    @include makeContainer(5%, 25px, 100%);
+}

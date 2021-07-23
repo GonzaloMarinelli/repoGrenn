@@ -1,0 +1,12 @@
+$navbar-light-color: $primaryTextColor;
+$navbar-light-hover-color: $lightPrimaryColor;
+$navbar-light-active-color: $darkPrimaryColor;
+header {
+    font-family: $fuenteOswald;
+}
+
+#menu {
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+}

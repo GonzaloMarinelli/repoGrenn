@@ -1,0 +1,44 @@
+.footer {
+    border-top: 4px solid $dividerColor;
+    .footer__imgLink {
+        display: flex;
+        justify-content: center;
+        img {
+            width: 10rem;
+        }
+    }
+    &__container {
+        @include makeContainer(5%, 25px, 100%);
+        &__menu {
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+            padding-left: 0;
+            &__sub {
+                padding-left: 0;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                list-style: none;
+            }
+        }
+        &__lista {
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            list-style: none;
+        }
+    }
+    .footer__link {
+        text-decoration: none;
+        color: $primaryTextColor;
+    }
+    .footer__link:hover {
+        background-color: $lightPrimaryColor;
+    }
+}

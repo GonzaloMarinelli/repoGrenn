@@ -1,0 +1,8 @@
+.sectUltimaNew {
+    border-top: 4px solid $dividerColor;
+    @include makeContainer(5%, 25px, 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
