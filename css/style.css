@@ -76,7 +76,7 @@
   margin-right: auto;
   margin-left: auto; }
 
-#carrouselSlide {
+#carouselSlide {
   font-family: "Noto Sans", sans-serif; }
 
 .sectAdProducts {
@@ -99,6 +99,7 @@
     margin-right: auto;
     margin-left: auto; }
     .sectAdProducts__div__categorie {
+      background-size: 100%;
       display: flex;
       flex-direction: column;
       margin: 1rem;
@@ -111,6 +112,7 @@
       .sectAdProducts__div__categorie p {
         font-size: large; }
       .sectAdProducts__div__categorie__link {
+        width: max-content;
         color: #FFFFFF;
         text-decoration: none; }
       .sectAdProducts__div__categorie__link:hover {
@@ -230,6 +232,12 @@ header {
   justify-content: space-evenly;
   width: 70%; }
 
+#navbar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 1; }
+
 .footer {
   border-top: 4px solid #BDBDBD; }
   .footer .footer__imgLink {
@@ -272,14 +280,9 @@ header {
   .footer .footer__link:hover {
     background-color: #C8E6C9; }
 
-@media (min-width: 1024px) {
-  /*media header*/
-  #navbarNavDropdown {
-    justify-content: center; }
-  /*sectProducts*/
-  .sectProducts {
-    display: flex;
-    flex-direction: row; } }
+@media (max-width: 768px) {
+  #product {
+    width: 100%; } }
 
 @media (min-width: 767px) {
   /*carrousel*/
@@ -297,13 +300,14 @@ header {
     margin-right: auto;
     margin-left: auto; }
     .sectAdProducts__div {
-      width: 50%;
+      width: 100%;
       padding-right: 0;
       padding-left: 0;
       padding-top: 0;
       padding-bottom: 0;
       margin-right: auto;
-      margin-left: auto; }
+      margin-left: auto;
+      height: 16rem; }
   /*sectDivisor*/
   .sectDivisor__divContainer {
     width: 50%;
@@ -334,6 +338,41 @@ header {
     justify-content: flex-start; }
     .footer .footer__imgLink img {
       width: 10rem; } }
+
+@media (min-width: 1024px) {
+  /*media header*/
+  #navbarNavDropdown {
+    justify-content: center; }
+  /*carrousel*/
+  .carousel-item {
+    height: 25rem; }
+    .carousel-item img {
+      height: auto; }
+  /*sectAdProducts*/
+  .sectAdProducts {
+    width: 100%;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-right: auto;
+    margin-left: auto; }
+    .sectAdProducts__div {
+      width: 50%;
+      padding-right: 0;
+      padding-left: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-right: auto;
+      margin-left: auto;
+      height: 16rem; } }
+
+@media (min-width: 1440px) {
+  /*carrousel*/
+  .carousel-item {
+    height: 35rem; }
+    .carousel-item img {
+      height: auto; } }
 
 /*!
  * Bootstrap v5.0.2 (https://getbootstrap.com/)

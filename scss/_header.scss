@@ -10,3 +10,10 @@ header {
     justify-content: space-evenly;
     width: 70%;
 }
+
+#navbar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}

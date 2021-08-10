@@ -4,18 +4,6 @@
     }
 }
 
-@media (min-width: 1024px) {
-    /*media header*/
-    #navbarNavDropdown {
-        justify-content: center;
-    }
-    /*sectProducts*/
-    .sectProducts {
-        display: flex;
-        flex-direction: row;
-    }
-}
-
 @media (min-width:767px) {
     /*carrousel*/
     .carousel-item {
@@ -28,7 +16,8 @@
     .sectAdProducts {
         @include makeContainer(5%, 50px, 100%);
         &__div {
-            @include makeContainer(0, 0, 50%);
+            @include makeContainer(0, 0, 100%);
+            height: 16rem;
         }
     }
     /*sectDivisor*/
@@ -57,6 +46,38 @@
             img {
                 width: 10rem;
             }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    /*media header*/
+    #navbarNavDropdown {
+        justify-content: center;
+    }
+    /*carrousel*/
+    .carousel-item {
+        height: 25rem;
+        img {
+            height: auto;
+        }
+    }
+    /*sectAdProducts*/
+    .sectAdProducts {
+        @include makeContainer(5%, 50px, 100%);
+        &__div {
+            @include makeContainer(0, 0, 50%);
+            height: 16rem;
+        }
+    }
+}
+
+@media (min-width: 1440px) {
+    /*carrousel*/
+    .carousel-item {
+        height: 35rem;
+        img {
+            height: auto;
         }
     }
 }
