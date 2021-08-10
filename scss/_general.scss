@@ -8,6 +8,10 @@
     width: 3rem;
 }
 
+.imgLogoMedium {
+    width: 16rem;
+}
+
 .fuenteWhite {
     font-family: $fuentePoppins;
     color: $textOrIconsColor;
@@ -67,5 +71,5 @@
 }
 
 .sectContainer {
-    @include makeContainer(5%, 25px, 100%);
+    @include makeContainer(10%, 25px, 100%);
 }

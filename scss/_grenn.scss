@@ -4,6 +4,9 @@
     color: $primaryTextColor;
     &__container {
         @include makeContainer(5%, 25px, 100%);
+        &__right {
+            background-color: #F5F5F5;
+        }
     }
     &__asides {
         @include makeContainer(5%, 1rem, 100%);
@@ -12,6 +15,7 @@
         &__title {
             display: flex;
             justify-content: center;
+            text-align: center;
         }
     }
 }
