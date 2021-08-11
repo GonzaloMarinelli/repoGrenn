@@ -10,7 +10,8 @@
     &__div {
         @include makeContainer(0, 0, 100%);
         &__categorie {
-            background-size: 100%;
+            background-size: cover;
+            background-repeat: round;
             display: flex;
             flex-direction: column;
             margin: 1rem;
