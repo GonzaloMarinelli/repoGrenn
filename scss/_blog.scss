@@ -1,8 +1,47 @@
-.sectUltimaNew {
-    border-top: 4px solid $dividerColor;
-    @include makeContainer(5%, 25px, 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.sectNotices {
+    @include makeContainer(15%, 5%, 100%);
+    &__title {
+        h2 {
+            text-align: center;
+            color: $importantColor;
+            font-weight: bold;
+        }
+    }
+    &__notice {
+        @include makeContainer(0, 5%, 100%);
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        &__img {
+            border-radius: 15px;
+            overflow: hidden;
+            width: 100%;
+            img {
+                height: 100%;
+                width: 100%;
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
+        }
+        &__text {
+            padding: 15px;
+            &__date {
+                color: black;
+                font-weight: 700;
+                font-size: 16px;
+                margin: 0 0 5px 0;
+            }
+            &__title {
+                color: $primaryColor;
+                font-weight: 700;
+                font-size: 30px;
+                margin: 0 0 25px 0;
+            }
+            p {
+                color: $primaryTextColor;
+                font-size: 15px;
+            }
+        }
+    }
 }

@@ -168,8 +168,15 @@
       color: #212121;
       text-align: center; }
       .sectDealerGrenn__container .row div {
-        background-image: url(img/mapaGrenn.png);
-        height: 30rem; }
+        padding: 0; }
+        .sectDealerGrenn__container .row div img {
+          width: 100%;
+          height: 100%; }
+    .sectDealerGrenn__container__title {
+      margin-bottom: 5%; }
+      .sectDealerGrenn__container__title h2, .sectDealerGrenn__container__title .h2 {
+        color: #908b66;
+        font-weight: bold; }
 
 .sectProducts {
   display: flex;
@@ -245,19 +252,54 @@
           border-bottom-left-radius: 10px;
           border-bottom-right-radius: 10px; }
 
-.sectUltimaNew {
-  border-top: 4px solid #BDBDBD;
+.sectNotices {
   width: 100%;
-  padding-right: 5%;
-  padding-left: 5%;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding-right: 15%;
+  padding-left: 15%;
+  padding-top: 5%;
+  padding-bottom: 5%;
   margin-right: auto;
-  margin-left: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; }
+  margin-left: auto; }
+  .sectNotices__title h2, .sectNotices__title .h2 {
+    text-align: center;
+    color: #908b66;
+    font-weight: bold; }
+  .sectNotices__notice {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin-right: auto;
+    margin-left: auto;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; }
+    .sectNotices__notice__img {
+      border-radius: 15px;
+      overflow: hidden;
+      width: 100%; }
+      .sectNotices__notice__img img {
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat; }
+    .sectNotices__notice__text {
+      padding: 15px; }
+      .sectNotices__notice__text__date {
+        color: black;
+        font-weight: 700;
+        font-size: 16px;
+        margin: 0 0 5px 0; }
+      .sectNotices__notice__text__title {
+        color: #4CAF50;
+        font-weight: 700;
+        font-size: 30px;
+        margin: 0 0 25px 0; }
+      .sectNotices__notice__text p {
+        color: #212121;
+        font-size: 15px; }
 
 header {
   font-family: "Oswald", sans-serif; }
