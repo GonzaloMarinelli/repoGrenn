@@ -19,3 +19,21 @@
         }
     }
 }
+
+.sectDealerGrenn {
+    border-top: 4px solid $dividerColor;
+    font-family: $fuentePoppins;
+    color: $primaryTextColor;
+    &__container {
+        @include makeContainer(10%, 5%, 100%);
+        .row {
+            font-family: $fuentePoppins;
+            color: $primaryTextColor;
+            text-align: center;
+            div {
+                background-image;
+                height: 30rem;
+            }
+        }
+    }
+}

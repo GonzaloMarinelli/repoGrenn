@@ -151,6 +151,26 @@
       justify-content: center;
       text-align: center; }
 
+.sectDealerGrenn {
+  border-top: 4px solid #BDBDBD;
+  font-family: "Poppins", sans-serif;
+  color: #212121; }
+  .sectDealerGrenn__container {
+    width: 100%;
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin-right: auto;
+    margin-left: auto; }
+    .sectDealerGrenn__container .row {
+      font-family: "Poppins", sans-serif;
+      color: #212121;
+      text-align: center; }
+      .sectDealerGrenn__container .row div {
+        background-image: url(img/mapaGrenn.png);
+        height: 30rem; }
+
 .sectProducts {
   display: flex;
   flex-direction: row;
@@ -220,8 +240,10 @@
           .sectProducts__div__product__footer li a {
             color: black;
             text-decoration: none; }
-          .sectProducts__div__product__footer li a:hover {
-            color: #4CAF50; }
+        .sectProducts__div__product__footer li:hover {
+          background-color: #C8E6C9;
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px; }
 
 .sectUltimaNew {
   border-top: 4px solid #BDBDBD;
