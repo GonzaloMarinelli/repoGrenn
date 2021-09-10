@@ -72,4 +72,5 @@
 
 .sectContainer {
     @include makeContainer(10%, 25px, 100%);
+    border-top: 4px solid $dividerColor;
 }

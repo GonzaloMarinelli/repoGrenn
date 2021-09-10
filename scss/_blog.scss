@@ -1,5 +1,6 @@
 .sectNotices {
     @include makeContainer(15%, 5%, 100%);
+    border-top: 4px solid $dividerColor;
     &__title {
         h2 {
             text-align: center;
