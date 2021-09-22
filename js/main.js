@@ -40,7 +40,7 @@ function mostrarProductos() {
                 <div class="sectProducts__div__product__footer">
                     <button><strong>Ficha Técnica</strong></button>
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                         <strong>Comparar con</strong>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -80,26 +80,29 @@ function comparar(idProducto, idTestigo) {
             var testigo = testig;
         }
     }
-    sectProducts.innerHTML += `<table class="table table-bordered" id="tabla">
-                                    <thead>
-                                     <tr>
-                                        <th scope="col">Tu híbrido</th>
-                                        <th scope="col">Testigo</th>
-                                        <th scope="col">N°</th>
-                                        <th scope="col">Rinde tu híbrido (kg/ha)</th>
-                                        <th scope="col">Rinde testigo (kg/ha)</th>
-                                        <th scope="col">DIF</th>
-                                     </tr>
-                                    </thead>
-                                    <tbody>
-                                     <tr>
-                                        <th scope="row">${producto.hibrido}</th>
-                                        <td>${testigo.hibrido}</td>
-                                        <td>${producto.nComparaciones}</td>
-                                        <td>${producto.rindeKGxHA}</td>
-                                        <td>${testigo.rindeKGxHA}</td>
-                                        <td>${producto.rindeKGxHA - testigo.rindeKGxHA}</td>
-                                     </tr>
-                                    </tbody>
-                                 </table>`;
+    $("#sectProducts").prepend(`<table class="table table-bordered" id="tabla" style="display: none">
+    <thead>
+     <tr>
+        <th scope="col">Tu híbrido</th>
+        <th scope="col">Testigo</th>
+        <th scope="col">N°</th>
+        <th scope="col">Rinde tu híbrido (kg/ha)</th>
+        <th scope="col">Rinde testigo (kg/ha)</th>
+        <th scope="col">DIF</th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+        <th scope="row">${producto.hibrido}</th>
+        <td>${testigo.hibrido}</td>
+        <td>${producto.nComparaciones}</td>
+        <td>${producto.rindeKGxHA}</td>
+        <td>${testigo.rindeKGxHA}</td>
+        <td>${producto.rindeKGxHA - testigo.rindeKGxHA}</td>
+     </tr>
+    </tbody>
+ </table>`);
+    $("#tabla").fadeIn("slow", function() {
+        $("#tabla").animate({ width: '80%' }, "slow");
+    });
 }
