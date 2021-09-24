@@ -1,86 +1,73 @@
 //Está no va a ser la funcionalidad final, por lo tanto el nombre del archivo (main.js), como de las funciones van a cambiar más adelante
 
+//Varibale para guardar los productos provenientes del JSON
+let listaProductosJSON;
+//variables para trabajar con el DOM.
+let sectProducts = document.querySelector("#sectProducts");
+let table = document.querySelector("#tabla");
+//Esto se ejecuta una vez cargado el DOM.
 
-//Creo una constante JSON
-const productosMaiz = [{ "id": 1, "hibrido": "NS 7917", "nComparaciones": 71, "rindeKGxHA": 11.253, "tecnologia": "VT3P" },
-    { "id": 2, "hibrido": "AX 7761", "nComparaciones": 72, "rindeKGxHA": 12.859, "tecnologia": "VT3P" },
-    { "id": 3, "hibrido": "AX 852", "nComparaciones": 73, "rindeKGxHA": 11.758, "tecnologia": "MG RR2" },
-    { "id": 4, "hibrido": "NS 4619", "nComparaciones": 74, "rindeKGxHA": 12.035, "tecnologia": "INTACTA RR2 PROLIGATE" },
-    { "id": 5, "hibrido": "NS 4955", "nComparaciones": 75, "rindeKGxHA": 12.756, "tecnologia": "RESISTENTE AL GLIFOSATO" },
-    { "id": 6, "hibrido": "NS 5258", "nComparaciones": 76, "rindeKGxHA": 11.005, "tecnologia": "INTACTA RR2 PRO" }
-];
-//creo una funcion guardar local
-const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
-//Guardo en el STORAGE local la lista de productos Maiz JSON
-guardarLocal("listaProductosMaiz", JSON.stringify(productosMaiz));
-//obtengo los productos almacenados de la listaProductosMaiz
-let almacenados = JSON.parse(localStorage.getItem("listaProductosMaiz"));
-//Variable que guarda el producto seleccionado para comparar
-let productoSeleccionado;
-//Guardo en una variable la sección donde se van a mostrar los productos
-let sectProducts = document.getElementById("sectProducts");
-//Muestro los productos ya guardados
 mostrarProductos();
 
 function mostrarProductos() {
-    //Actualizamos los productos almacenados de la listaProductosMaiz, por si hubo algun cambio (Más adelate).
-    almacenados = JSON.parse(localStorage.getItem("listaProductosMaiz"));
-    for (const producto of almacenados) {
-        sectProducts.innerHTML += `<!-- bloque Product ${producto.id} -->
-        <div class="col-4 sectProducts__div" id="product">
-            <div class="sectProducts__div__product">
-                <div class="sectProducts__div__product__header">
-                    <h2><strong>${producto.hibrido}</strong></h2>
-                    <img src="img/Icons/maiz.png" class="sect" alt="maiz">
-                </div>
-                <div class="sectProducts__div__product__body">
-                    <p>Tecnología</p>
-                    <p><strong>${producto.tecnologia}</strong></p>
-                </div>
-                <div class="sectProducts__div__product__footer">
-                    <button><strong>Ficha Técnica</strong></button>
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                        <strong>Comparar con</strong>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        ${listarOtrosProductos(producto.id, almacenados)}
-                        </ul>
+    //obtenemos el json
+    $.get('data/data.json', (respuesta, estado) => {
+        listaProductosJSON = respuesta; //guardamos el json en una variable
+        listaProductosJSON.map(prod => { //recorremos el array y utilizamos sus datos aplicandolos al dom.
+                sectProducts.innerHTML += `<!-- bloque Product ${prod.id} -->
+            <div class="col-4 sectProducts__div" id="product">
+                <div class="sectProducts__div__product">
+                    <div class="sectProducts__div__product__header">
+                        <h2><strong>${prod.hibrido}</strong></h2>
+                        <img src="img/Icons/maiz.png" class="sect" alt="maiz">
+                    </div>
+                    <div class="sectProducts__div__product__body">
+                        <p>Tecnología</p>
+                        <p><strong>${prod.tecnologia}</strong></p>
+                    </div>
+                    <div class="sectProducts__div__product__footer">
+                        <button><strong>Ficha Técnica</strong></button>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            <strong>Comparar con</strong>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            ${listarOtrosProductos(prod.id)} 
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>`;
-    }
+            </div>`;
+            }) //llamo a la función listarOtrosProductos mediante el id del producto seleccionado
+    })
 }
 
-function listarOtrosProductos(idProducto, arrayProductos) {
+//Function para listar los otros productos no seleccionados en el btn comparar
+function listarOtrosProductos(idProducto) {
     let acumulador = "";
-    for (const producto of arrayProductos) {
-        if (producto.id != idProducto) {
-            acumulador += `<li><a class="dropdown-item" onclick="comparar(${idProducto},${producto.id})">${producto.hibrido}</a></li>`;
+    listaProductosJSON.map(prod => {
+        if (prod.id != idProducto) {
+            acumulador += `<li><a class="dropdown-item" onclick="comparar(${idProducto},${prod.id})">${prod.hibrido}</a></li>`;
         }
-    }
+    })
     return acumulador;
 }
 
 function comparar(idProducto, idTestigo) {
-    let table = document.getElementById("tabla");
+    //Si la tabla ya fue creada la removemos
+    let productoS; //ProductoSeleccionado
+    let testigoS; //Testigo seleccionado
     if (table != null) {
         table.parentNode.removeChild(table);
     }
-    //Como recibimos el id del producto ahora hay que guardar el objeto producto en la variable que corresponde.
-    for (const product of almacenados) {
-        if (product.id == idProducto) {
-            var producto = product;
+    listaProductosJSON.map(prod => {
+        if (prod.id == idProducto) {
+            productoS = prod;
+        } else if (prod.id == idTestigo) {
+            testigoS = prod;
         }
-    }
-    //Como recibimos el id del testigo ahora hay que guardar el objeto testigo en la variable que corresponde.
-    for (const testig of almacenados) {
-        if (testig.id == idTestigo) {
-            var testigo = testig;
-        }
-    }
-    $("#sectProducts").prepend(`<table class="table table-bordered" id="tabla" style="display: none">
+    })
+    sectProducts.innerHTML += `<table class="table table-bordered" id="tabla" style="display: none">
     <thead>
      <tr>
         <th scope="col">Tu híbrido</th>
@@ -93,16 +80,14 @@ function comparar(idProducto, idTestigo) {
     </thead>
     <tbody>
      <tr>
-        <th scope="row">${producto.hibrido}</th>
-        <td>${testigo.hibrido}</td>
-        <td>${producto.nComparaciones}</td>
-        <td>${producto.rindeKGxHA}</td>
-        <td>${testigo.rindeKGxHA}</td>
-        <td>${producto.rindeKGxHA - testigo.rindeKGxHA}</td>
+        <th scope="row">${productoS.hibrido}</th>
+        <td>${testigoS.hibrido}</td>
+        <td>${productoS.nComparaciones}</td>
+        <td>${productoS.rindeKGxHA}</td>
+        <td>${testigoS.rindeKGxHA}</td>
+        <td>${productoS.rindeKGxHA - testigoS.rindeKGxHA}</td>
      </tr>
     </tbody>
- </table>`);
-    $("#tabla").fadeIn("slow", function() {
-        $("#tabla").animate({ width: '80%' }, "slow");
-    });
+ </table>`;
+    $("#tabla").fadeIn("slow");
 }
