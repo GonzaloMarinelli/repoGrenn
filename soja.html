@@ -15,6 +15,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&famil=Oswald&family=Poppins:wght@300&display=swap" rel="stylesheet">
     <title>Grenn Semillas - Cultivos - Soja</title>
     <link rel="shortcut icon" href="img/iconGrenn/favIconGrenn.png">
+    <script type="text/javascript" src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        sessionStorage.removeItem('tipoProd');
+        sessionStorage.setItem('tipoProd', 'soja');
+    </script>
 </head>
 
 <body>
@@ -58,109 +63,7 @@
         <p><strong>El portafolio más completo en tecnología, con una variedad para cada lote.</strong></p>
     </section>
     <!-- bloque Products -->
-    <section class="sectProducts">
-        <!-- bloque Product 1 -->
-        <div class="col-4 sectProducts__div" id="product">
-            <div class="sectProducts__div__product">
-                <div class="sectProducts__div__product__header">
-                    <h2><strong>STS 2632</strong></h2>
-                    <img src="img/Icons/soja.png" class="sect" alt="maiz">
-                </div>
-                <div class="sectProducts__div__product__body">
-                    <p>Tecnología</p>
-                    <p><strong>RESISTENTE AL GLIFOSATO</strong></p>
-                </div>
-                <div class="sectProducts__div__product__footer">
-                    <button><strong>Ficha Técnica</strong></button>
-                    <button><strong>Comparar</strong></button>
-                </div>
-            </div>
-        </div>
-        <!-- bloque Product 2 -->
-        <div class="col-4 sectProducts__div" id="product">
-            <div class="sectProducts__div__product">
-                <div class="sectProducts__div__product__header">
-                    <h2><strong>STS 7761</strong></h2>
-                    <img src="img/Icons/soja.png" class="sect" alt="maiz">
-                </div>
-                <div class="sectProducts__div__product__body">
-                    <p>Tecnología</p>
-                    <p><strong>LIGATE ST</strong></p>
-                </div>
-                <div class="sectProducts__div__product__footer">
-                    <button><strong>Ficha Técnica</strong></button>
-                    <button><strong>Comparar</strong></button>
-                </div>
-            </div>
-        </div>
-        <!-- bloque Product 3 -->
-        <div class="col-4 sectProducts__div" id="product">
-            <div class="sectProducts__div__product">
-                <div class="sectProducts__div__product__header">
-                    <h2><strong>IPRO 6859 </strong></h2>
-                    <img src="img/Icons/soja.png" class="sect" alt="maiz">
-                </div>
-                <div class="sectProducts__div__product__body">
-                    <p>Tecnología</p>
-                    <p><strong>INTACTA RR2 PRO</strong></p>
-                </div>
-                <div class="sectProducts__div__product__footer">
-                    <button><strong>Ficha Técnica</strong></button>
-                    <button><strong>Comparar</strong></button>
-                </div>
-            </div>
-        </div>
-        <!-- bloque Product 4 -->
-        <div class="col-4 sectProducts__div" id="product">
-            <div class="sectProducts__div__product">
-                <div class="sectProducts__div__product__header">
-                    <h2><strong>IPRO  7709 </strong></h2>
-                    <img src="img/Icons/soja.png" class="sect" alt="maiz">
-                </div>
-                <div class="sectProducts__div__product__body">
-                    <p>Tecnología</p>
-                    <p><strong>NTACTA RR2 PRO</strong></p>
-                </div>
-                <div class="sectProducts__div__product__footer">
-                    <button><strong>Ficha Técnica</strong></button>
-                    <button><strong>Comparar</strong></button>
-                </div>
-            </div>
-        </div>
-        <!-- bloque Product 5 -->
-        <div class="col-4 sectProducts__div" id="product">
-            <div class="sectProducts__div__product">
-                <div class="sectProducts__div__product__header">
-                    <h2><strong>STS 7809</strong></h2>
-                    <img src="img/Icons/soja.png" class="sect" alt="maiz">
-                </div>
-                <div class="sectProducts__div__product__body">
-                    <p>Tecnología</p>
-                    <p><strong>RESISTENTE AL GLIFOSATO</strong></p>
-                </div>
-                <div class="sectProducts__div__product__footer">
-                    <button><strong>Ficha Técnica</strong></button>
-                    <button><strong>Comparar</strong></button>
-                </div>
-            </div>
-        </div>
-        <!-- bloque Product 6 -->
-        <div class="col-4 sectProducts__div" id="product">
-            <div class="sectProducts__div__product">
-                <div class="sectProducts__div__product__header">
-                    <h2><strong>STS 8018</strong></h2>
-                    <img src="img/Icons/soja.png" class="sect" alt="maiz">
-                </div>
-                <div class="sectProducts__div__product__body">
-                    <p>Tecnología</p>
-                    <p><strong>LIGATE STS</strong></p>
-                </div>
-                <div class="sectProducts__div__product__footer">
-                    <button><strong>Ficha Técnica</strong></button>
-                    <button><strong>Comparar</strong></button>
-                </div>
-            </div>
-        </div>
+    <section class="sectProducts" id="sectProducts">
     </section>
     <!-- bloque footer -->
     <footer class="footer ">
@@ -194,6 +97,7 @@
             </div>
         </div>
     </footer>
+    <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 

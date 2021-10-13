@@ -15,6 +15,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&famil=Oswald&family=Poppins:wght@300&display=swap" rel="stylesheet">
     <title>Grenn Semillas - Cultivos - Girasol</title>
     <link rel="shortcut icon" href="img/iconGrenn/favIconGrenn.png">
+    <script type="text/javascript" src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        sessionStorage.removeItem('tipoProd');
+        sessionStorage.setItem('tipoProd', 'girasol');
+    </script>
 </head>
 
 <body>
@@ -58,58 +63,7 @@
         <p><strong>Destacado por estabilidad y potencial gracias a rendimiento bonificado, sanidad y tecnología CL en todos nuestros híbridos.</strong></p>
     </section>
     <!-- bloque Products -->
-    <section class="sectProducts">
-        <!-- bloque Product 1 -->
-        <div class="col-4 sectProducts__div" id="product">
-            <div class="sectProducts__div__product">
-                <div class="sectProducts__div__product__header">
-                    <h2><strong>PARAÍSO 102</strong></h2>
-                    <img src="img/Icons/girasol.png" class="sect" alt="maiz">
-                </div>
-                <div class="sectProducts__div__product__body">
-                    <p>Ciclo</p>
-                    <p><strong>CORTO</strong></p>
-                </div>
-                <div class="sectProducts__div__product__footer">
-                    <button><strong>Ficha Técnica</strong></button>
-                    <button><strong>Comparar</strong></button>
-                </div>
-            </div>
-        </div>
-        <!-- bloque Product 2 -->
-        <div class="col-4 sectProducts__div" id="product">
-            <div class="sectProducts__div__product">
-                <div class="sectProducts__div__product__header">
-                    <h2><strong>AROMO 105</strong></h2>
-                    <img src="img/Icons/girasol.png" class="sect" alt="maiz">
-                </div>
-                <div class="sectProducts__div__product__body">
-                    <p>Tecnología</p>
-                    <p><strong>INTERMEDIO</strong></p>
-                </div>
-                <div class="sectProducts__div__product__footer">
-                    <button><strong>Ficha Técnica</strong></button>
-                    <button><strong>Comparar</strong></button>
-                </div>
-            </div>
-        </div>
-        <!-- bloque Product 3 -->
-        <div class="col-4 sectProducts__div" id="product">
-            <div class="sectProducts__div__product">
-                <div class="sectProducts__div__product__header">
-                    <h2><strong>GR 2515</strong></h2>
-                    <img src="img/Icons/girasol.png" class="sect" alt="maiz">
-                </div>
-                <div class="sectProducts__div__product__body">
-                    <p>Ciclo</p>
-                    <p><strong>Largo</strong></p>
-                </div>
-                <div class="sectProducts__div__product__footer">
-                    <button><strong>Ficha Técnica</strong></button>
-                    <button><strong>Comparar</strong></button>
-                </div>
-            </div>
-        </div>
+    <section class="sectProducts" id="sectProducts">
     </section>
     <!-- bloque footer -->
     <footer class="footer ">
@@ -143,6 +97,7 @@
             </div>
         </div>
     </footer>
+    <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 

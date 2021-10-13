@@ -1,0 +1,23 @@
+[
+    { "id": 1, "tipoProd": "maiz", "hibrido": "NS 7917", "nComparaciones": 71, "rindeKGxHA": 11.253, "desc": "Tecnología", "info": "VT3P", "pExito": "81" },
+    { "id": 2, "tipoProd": "maiz", "hibrido": "AX 7761", "nComparaciones": 72, "rindeKGxHA": 12.859, "desc": "Tecnología", "info": "VT3P", "pExito": "66" },
+    { "id": 3, "tipoProd": "maiz", "hibrido": "AX 852", "nComparaciones": 73, "rindeKGxHA": 11.758, "desc": "Tecnología", "info": "MG RR2", "pExito": "85" },
+    { "id": 4, "tipoProd": "maiz", "hibrido": "NS 4619", "nComparaciones": 74, "rindeKGxHA": 12.035, "desc": "Tecnología", "info": "INTACTA RR2 PROLIGATE", "pExito": "69" },
+    { "id": 5, "tipoProd": "maiz", "hibrido": "NS 4955", "nComparaciones": 75, "rindeKGxHA": 12.756, "desc": "Tecnología", "info": "RESISTENTE AL GLIFOSATO", "pExito": "78" },
+    { "id": 6, "tipoProd": "maiz", "hibrido": "NS 5258", "nComparaciones": 76, "rindeKGxHA": 11.005, "desc": "Tecnología", "info": "INTACTA RR2 PRO", "pExito": "91" },
+
+    { "id": 7, "tipoProd": "soja", "hibrido": "STS 2632", "nComparaciones": 78, "rindeKGxHA": 10.235, "desc": "Tecnología", "info": "RESISTENTE AL GLIFOSATO", "pExito": "88" },
+    { "id": 8, "tipoProd": "soja", "hibrido": "STS 7761", "nComparaciones": 80, "rindeKGxHA": 11.659, "desc": "Tecnología", "info": "LIGATE ST", "pExito": "96" },
+    { "id": 9, "tipoProd": "soja", "hibrido": "IPRO 6859", "nComparaciones": 77, "rindeKGxHA": 9.238, "desc": "Tecnología", "info": "INTACTA RR2 PRO", "pExito": "87" },
+    { "id": 10, "tipoProd": "soja", "hibrido": "IPRO 7709", "nComparaciones": 81, "rindeKGxHA": 9.785, "desc": "Tecnología", "info": "INTACTA RR2 PRO", "pExito": "74" },
+    { "id": 11, "tipoProd": "soja", "hibrido": "STS 7809", "nComparaciones": 81, "rindeKGxHA": 11.966, "desc": "Tecnología", "info": "RESISTENTE AL GLIFOSATO", "pExito": "69" },
+    { "id": 12, "tipoProd": "soja", "hibrido": "STS 8018", "nComparaciones": 75, "rindeKGxHA": 10.123, "desc": "Tecnología", "info": "LIGATE STS", "pExito": "71" },
+
+    { "id": 13, "tipoProd": "girasol", "hibrido": "PARAÍSO 102", "nComparaciones": 91, "rindeKGxHA": 13.735, "desc": "Ciclo", "info": "CORTO", "pExito": "90" },
+    { "id": 14, "tipoProd": "girasol", "hibrido": "AROMO 105", "nComparaciones": 93, "rindeKGxHA": 14.009, "desc": "Ciclo", "info": "INTERMEDIO", "pExito": "91" },
+    { "id": 15, "tipoProd": "girasol", "hibrido": "GR 2515", "nComparaciones": 89, "rindeKGxHA": 14.938, "desc": "Ciclo", "info": "Largo", "pExito": "92" },
+
+    { "id": 16, "tipoProd": "trigo", "hibrido": "BAGUETTE 450", "nComparaciones": 77, "rindeKGxHA": 16.996, "desc": "Requerimientos de frío", "info": "Medios", "pExito": "84" },
+    { "id": 17, "tipoProd": "trigo", "hibrido": "BAGUETTE 680", "nComparaciones": 79, "rindeKGxHA": 16.263, "desc": "Requerimientos de frío", "info": "No", "pExito": "85" },
+    { "id": 18, "tipoProd": "trigo", "hibrido": "BAGUETTE 750", "nComparaciones": 71, "rindeKGxHA": 17.100, "desc": "Requerimientos de frío", "info": "Medios", "pExito": "88" }
+]

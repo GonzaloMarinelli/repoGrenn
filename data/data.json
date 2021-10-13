@@ -1,8 +1,0 @@
-[
-    { "id": 1, "hibrido": "NS 7917", "nComparaciones": 71, "rindeKGxHA": 11.253, "tecnologia": "VT3P" },
-    { "id": 2, "hibrido": "AX 7761", "nComparaciones": 72, "rindeKGxHA": 12.859, "tecnologia": "VT3P" },
-    { "id": 3, "hibrido": "AX 852", "nComparaciones": 73, "rindeKGxHA": 11.758, "tecnologia": "MG RR2" },
-    { "id": 4, "hibrido": "NS 4619", "nComparaciones": 74, "rindeKGxHA": 12.035, "tecnologia": "INTACTA RR2 PROLIGATE" },
-    { "id": 5, "hibrido": "NS 4955", "nComparaciones": 75, "rindeKGxHA": 12.756, "tecnologia": "RESISTENTE AL GLIFOSATO" },
-    { "id": 6, "hibrido": "NS 5258", "nComparaciones": 76, "rindeKGxHA": 11.005, "tecnologia": "INTACTA RR2 PRO" }
-]
