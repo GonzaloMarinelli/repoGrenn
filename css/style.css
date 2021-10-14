@@ -239,7 +239,7 @@
         height: 15%;
         align-items: center;
         justify-content: center; }
-        .sectProducts__div__product__footer button,
+        .sectProducts__div__product__footer .btn,
         .sectProducts__div__product__footer div {
           border-bottom-left-radius: 10px;
           border-bottom-right-radius: 10px;
@@ -252,7 +252,7 @@
           border: 0;
           padding: 0;
           outline: none; }
-        .sectProducts__div__product__footer button:hover {
+        .sectProducts__div__product__footer .btn:hover {
           text-decoration: none;
           background-color: #C8E6C9;
           color: black; }
