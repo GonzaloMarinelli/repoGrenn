@@ -25,7 +25,11 @@ $.get('data/products.json', (respuesta, estado) => {
                                     <p><strong>${prod.info}</strong></p>
                                 </div>
                                 <div class="sectProducts__div__product__footer">
-                                <button class="btn"><strong>Ficha Técnica</strong></button>
+                                    <div>
+                                        <button class="btn" onclick="mostrarFicha(${prod.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                            <strong>Ficha Técnica</strong>
+                                        </button>
+                                    </div>
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                                             <strong>Comparar con</strong>
@@ -43,6 +47,37 @@ $.get('data/products.json', (respuesta, estado) => {
             }
         }) //llamo a la función listarOtrosProductos mediante el id del producto seleccionado
 })
+
+function mostrarFicha(idProducto) {
+    limpiarModal();
+    let productoS; //ProductoSeleccionado
+    listaProductosJSON.map(prod => {
+        if (prod.id == idProducto) {
+            productoS = prod;
+        }
+    })
+    $("#staticBackdropLabel").append(productoS.hibrido);
+    $("#modalBody").append(`<div class="row" id="ficha">
+                                <div class="col-md-4">
+                                    <h5><u>Siembra</u></h5>
+                                    <img src="${productoS.img}" class="" alt="Imagen del mapa de siembra">
+                                </div>
+                                <div class="col-md-8">
+                                    <h5><u>Descripción</u></h5>
+                                    <p>${productoS.resume}</p>
+                                    <ul>
+                                        <li>Comparaciones: ${productoS.nComparaciones}</li>
+                                        <li>Rinde (kg/ha): ${productoS.rindeKGxHA}</li>
+                                        <li>${productoS.desc}: ${productoS.info}</li>
+                                        <li>Éxito%: ${productoS.pExito}</li>
+                                        <li>Madurez relativa: ${productoS.madurez}</li>
+                                        <li>Tipo de grano: ${productoS.tipoGrano}</li>
+                                        <li>Peso mil granos (g): ${productoS.pesoMilGranos}</li>
+                                    </ul>
+                                </div>
+                            </div>
+    `);
+}
 
 //función para listar los otros productos no seleccionados en el btn comparar con
 //Además separa cada btnListoN+id con su grupo de cbox para luego comparar en una tabla con los id de los productos marcados por los cbox seleccionados
@@ -62,34 +97,39 @@ function listarOtrosProductos(idProducto, btnListoN) {
 
 //Función que recibe el producto a comparar con el id del btn Listo, para buscar los productos comparativos seleccionados
 function comparar(idProducto, idBtnListo) {
-    $("#table").remove();
+    limpiarModal();
     let listaTestigos = obtenerTestigosS(idBtnListo); //listamos como objetos los productos testigos comparativos
-    let productoS; //ProductoSeleccionado
-    listaProductosJSON.map(prod => {
-        if (prod.id == idProducto) {
-            productoS = prod;
-        }
-    })
-    $("#modalBody").append(`<table class="table table-striped" id="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Tu híbrido</th>
-                                <th scope="col">Tetigos</th>
-                                <th scope="col">N° </th>
-                                <th scope="col">Rinde tu híbrido (kg/ha)</th>
-                                <th scope="col">Rinde testigos (kg/ha)</th>
-                                <th scope="col">Diferencia</th>
-                                <th scope="col">% éxito</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td rowspan=${listaTestigos.length} class="text-center"><strong>${productoS.hibrido}</strong></td>
-                                ${calcularListarTetigosS(listaTestigos, productoS)}
-                            </tr>
-                        </tbody>
-                    </table>`)
-
+    if (listaTestigos.length == 0) {
+        $("#staticBackdropLabel").append("Aviso");
+        $("#modalBody").append(`<p id="aviso">Por favor seleccione algún testigo</tr>`);
+    } else {
+        let productoS; //ProductoSeleccionado
+        listaProductosJSON.map(prod => {
+            if (prod.id == idProducto) {
+                productoS = prod;
+            }
+        })
+        $("#staticBackdropLabel").append("Análisis");
+        $("#modalBody").append(`<table class="table table-striped" id="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Tu híbrido</th>
+                                            <th scope="col">Tetigos</th>
+                                            <th scope="col">N° </th>
+                                            <th scope="col">Híbrido (kg/ha)</th>
+                                            <th scope="col">Testigo (kg/ha)</th>
+                                            <th scope="col">Diferencia</th>
+                                            <th scope="col">% éxito</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowspan=${listaTestigos.length} class="text-center"><strong>${productoS.hibrido}</strong></td>
+                                            ${calcularListarTetigosS(listaTestigos, productoS)}
+                                        </tr>
+                                    </tbody>
+                                </table>`)
+    }
 }
 
 //Función que cálcula los datos de los testigos, los compara con el hibrido seleccionado y los lista para mostrar en la tabla
@@ -99,7 +139,7 @@ function calcularListarTetigosS(listaTestigos, productoS) {
     listaTestigos.map(prod => {
         var dif = rindeKGxHAhibrido - prod.rindeKGxHA;
         var exito = (productoS.pExito * prod.pExito) / 100;
-        acumulador += `<td>${prod.hibrido}</td><td>${prod.nComparaciones}</td><td>${rindeKGxHAhibrido}</td><td>${prod.rindeKGxHA}</td><td>${dif}</td><td>${exito}</td></tr>`;
+        acumulador += `<td>${prod.hibrido}</td><td>${prod.nComparaciones}</td><td>${rindeKGxHAhibrido}</td><td>${prod.rindeKGxHA}</td><td>${Math.round(dif * 1000) / 1000}</td><td>${exito}</td></tr>`;
         acumulador += `<tr>`;
         rindeKGxHAhibrido += 0.253;
     })
@@ -126,4 +166,11 @@ function obtenerTestigosS(idBtnListo) {
         }
     }
     return productsTestigos;
+}
+
+function limpiarModal() {
+    $("#staticBackdropLabel").empty();
+    $("#aviso").remove();
+    $("#table").remove();
+    $("#ficha").remove();
 }

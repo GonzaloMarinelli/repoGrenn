@@ -257,6 +257,11 @@
           background-color: #C8E6C9;
           color: black; }
 
+#ficha img {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
 .sectNotices {
   width: 100%;
   padding-right: 15%;
